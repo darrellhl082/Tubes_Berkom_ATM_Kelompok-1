@@ -14,7 +14,7 @@
 #
 
 # Import fungsi
-from modul.hello import hello
+from module.hello import hello
 
 
 
