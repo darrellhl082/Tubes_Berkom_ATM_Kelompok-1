@@ -2,14 +2,20 @@
 # Lorem Ipsum
 
 # Kamus
+
+# Variabel
 # cek_lanjut: str
 # main_loop: bool
+
+# Fungsi
+# Hello(): Print Hello
 
 # Algoritma
 #
 
 # Import fungsi
-from module.hello import hello
+from modul.hello import hello
+
 
 
 
