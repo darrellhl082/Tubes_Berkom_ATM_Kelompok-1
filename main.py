@@ -25,7 +25,7 @@ def main():
     while main_loop:
 
         hello()
-
+        print ("Hellow world")
 
         # Loop Termination
         cek_lanjut = input("Lanjut? Ya/Tidak: ") 
