@@ -25,8 +25,11 @@ def main():
     while main_loop:
 
         hello()
-        
+
         print("zaki")
+
+
+        print("odre")
 
 
         # Loop Termination
