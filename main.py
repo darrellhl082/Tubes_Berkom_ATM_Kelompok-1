@@ -25,8 +25,18 @@ def main():
     while main_loop:
 
         hello()
-        print ("Hellow world")
 
+       
+
+        print(ranti)
+
+        print("zaki")
+
+
+        print("odre")
+
+
+        print ("Hellow world")
         # Loop Termination
         cek_lanjut = input("Lanjut? Ya/Tidak: ") 
         if cek_lanjut == "Tidak":
