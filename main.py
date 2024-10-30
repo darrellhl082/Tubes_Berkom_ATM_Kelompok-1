@@ -17,28 +17,29 @@
 from module.hello import hello
 
 
+# Definisi Fungsi
+def main():
+    main_loop = True
+    cek_lanjut : str
+
+    while main_loop:
+
+        hello()
 
 
-# Inisiasi Variabel
-main_loop = True
-cek_lanjut : str
+        # Loop Termination
+        cek_lanjut = input("Lanjut? Ya/Tidak: ") 
+        if cek_lanjut == "Tidak":
+            main_loop = False
+        
+        if not main_loop: # Loop Terminator
+            break
 
 
 
 # Main Loop
+main()
 
-while main_loop:
-
-    hello()
-
-
-    # Loop Termination
-    cek_lanjut = input("Lanjut? Ya/Tidak: ") 
-    if cek_lanjut == "Tidak":
-        main_loop = False
-    
-    if not main_loop: # Loop Terminator
-        break
 
 
 
