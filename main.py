@@ -25,6 +25,7 @@ def main():
     while main_loop:
 
         hello()
+        print(ranti)
 
         print("zaki")
 
