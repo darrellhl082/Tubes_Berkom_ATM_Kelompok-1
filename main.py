@@ -25,7 +25,12 @@ def main():
     while main_loop:
 
         hello()
+
+        print("zaki")
+
+
         print("odre")
+
 
         # Loop Termination
         cek_lanjut = input("Lanjut? Ya/Tidak: ") 
