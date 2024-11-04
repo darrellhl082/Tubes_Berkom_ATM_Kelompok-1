@@ -26,7 +26,7 @@ def main():
 
         hello()
 
-
+        print("Ddd")
         # Loop Termination
         cek_lanjut = input("Lanjut? Ya/Tidak: ") 
         if cek_lanjut == "Tidak":
