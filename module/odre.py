@@ -1,3 +1,4 @@
+# Program Transfer ATM
 
 def transaksi_lain():
     print("TRANSAKSI LAIN")
@@ -9,7 +10,7 @@ def nomor_rekening():
     print("MASUKKAN KODE BANK DAN NOMOR REKENING TUJUAN")
     norek = int(input())
 
-
+# ini permisalan aja beberapa kode bank
 def kode_bank():
     print("DAFTAR KODE BANK")
     bank = ["002:BRI", "009:BNI", "014:BCA", "008:MANDIRI", "100:BTN", "451:BSI", "022:CIMB NIAGA"]
