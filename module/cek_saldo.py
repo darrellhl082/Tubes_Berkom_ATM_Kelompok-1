@@ -1,11 +1,12 @@
-def cek_saldo(data_nasabah_online):
+def cek_saldo(nasabah_now):
+    saldo_text = f"{nasabah_now["saldo"]}".center(40)
     print(
         f"""
         __________________________________________
         |                                        |
         |              JUMLAH SALDO              |
         |                                        |
-        |     {data_nasabah_online["Saldo"]}     |
+        |{saldo_text}|
         |                 RUPIAH                 |
         |                                        |
         |     APAKAH INGIN LANJUT TRANSAKSI?     |
