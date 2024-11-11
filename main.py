@@ -4,33 +4,102 @@
 # Kamus
 
 # Variabel
-# cek_lanjut: str
 # main_loop: bool
 
 # Fungsi
-# Hello(): Print Hello
+
 
 # Algoritma
 #
 
 # Import fungsi
-from module.hello import hello
 
+from module.main_autentikasi import Main_Otentikasi # fungsi autentikasi
+
+# Definisi Variabel dan Array
+data_nasabah = [
+    {
+        "nomor_rekening" : "16524041",
+        "password" : "16524041",
+        "nama": "Rizal Udin",
+        "saldo": 100000
+    },
+    {
+        "nomor_rekening": "16524043",
+        "password" : "16524043",
+        "nama": "Gibran",
+        "saldo": 200000
+    },
+    {
+        "nomor_rekening" : "16524044",
+        "password" : "16524044",
+        "nama" : "Fufufafa",
+        "saldo" : 300000
+    }
+]
 
 # Definisi Fungsi
+
+def penarikan_tunai(jumlah):
+    print(jumlah)
+
 def main():
     main_loop = True
-    cek_lanjut : str
-
+    nasabah_now = Main_Otentikasi(data_nasabah)
     while main_loop:
 
-        hello()
-        print("odre")
+        # Kondisi Menu
+        print(
+        """
+        __________________________________________
+        |                                        |
+        |            PENARIKAN TUNAI             |
+        | SILAHKAN MASUKKAN ANGKA SESUAI PILIHAN |
+        |                                        |
+        | (1) 50.000      (5) 1.000.000          |
+        | (2) 250.000     (6) 1.500.000          |
+        | (3) 500.000     (7) Jumlah Lainnya     |
+        | (4) 750.000     (8) Transaksi Lainnya  |
+        |________________________________________|
+        """
+        )
+        input_pilihan_menu = int(input("Pilih menu: "))
 
+        list_nominal = [50000, 250000, 500000, 750000, 1000000, 1500000, None]
+        if input_pilihan_menu < 7:
+            penarikan_tunai(list_nominal[input_pilihan_menu - 1])
+        elif input_pilihan_menu == 8:
+            print(
+        """
+        __________________________________________
+        |                                        |
+        |             TRANSAKSI LAIN             |
+        | SILAHKAN MASUKKAN ANGKA SESUAI PILIHAN |
+        |                                        |
+        | (1) INFORMASI SALDO                    |
+        | (2) TRANSFER ANTAR BANK                |
+        | (3) PENARIKAN TUNAI                    |
+        |                                        |
+        |________________________________________|
+        """
+            )
+            input_pilihan_menu = int(input("Pilih menu: "))
+            while True:           
+                if input_pilihan_menu == 1:
+                    print("informasi_saldo()")
+                    break
+                elif input_pilihan_menu == 2:
+                    print("transfer bank")
+                    break
+                elif input_pilihan_menu == 3:
+                    break
+                else:
+                    input_pilihan_menu = int(input("Pilih menu: "))
+
+
+    
+        
         # Loop Termination
-        cek_lanjut = input("Lanjut? Ya/Tidak: ") 
-        if cek_lanjut == "Tidak":
-            main_loop = False
         
         if not main_loop: # Loop Terminator
             break
