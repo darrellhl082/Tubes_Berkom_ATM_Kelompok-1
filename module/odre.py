@@ -1,33 +1,24 @@
 # Program Transfer ATM
 
-def transaksi_lain():
-    print("TRANSAKSI LAIN")
-
-def transfer():
-    print("TRANSFER")
-
-def nomor_rekening():
-    print("MASUKKAN KODE BANK DAN NOMOR REKENING TUJUAN")
-    norek = int(input())
-
 # ini permisalan aja beberapa kode bank
 def kode_bank():
     print("DAFTAR KODE BANK")
-    bank = ["002:BRI", "009:BNI", "014:BCA", "008:MANDIRI", "100:BTN", "451:BSI", "022:CIMB NIAGA"]
+    bank = ["165:STEIR", "196:STEIK", "160:FMIPA", "163:FITB", "167:FTI", "166:FTSL", "169:FTMD"]
     for data in bank:
         print(data)
 
 # permisalan aja karena belum disambungin sama yang lain
 saldo = 1000000
-min_saldo = 50000
+min_saldo = 5000
 
 while True:
-    transaksi_lain()
+    print("TRANSAKSI LAIN")
     transaksi = input("YA/TIDAK: ")
     if transaksi == "YA":
         while True:
-            transfer()
-            nomor_rekening()
+            print("TRANSFER")
+            print("MASUKKAN KODE BANK DAN NOMOR REKENING TUJUAN")
+            norek = int(input())
             pilih = input("1. TEKAN 1 JIKA BENAR\n2. TEKAN 2 JIKA SALAH\n3. TEKAN 3 UNTUK KODE BANK\n")
             if pilih == "1":
                 while True:
