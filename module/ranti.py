@@ -24,7 +24,7 @@ def penarikan_tunai(nasabah_now, jumlah_penarikan):
                 |________________________________________|
                 """
                 )
-            elif nasabah_now < min_saldo:
+            elif nasabah_now["saldo"] < min_saldo:
                 print(
                 """
                 __________________________________________
@@ -39,7 +39,7 @@ def penarikan_tunai(nasabah_now, jumlah_penarikan):
                 |________________________________________|
                 """
                 )
-            elif nasabah_now-jumlah_penarikan < min_saldo:
+            elif nasabah_now["saldo"] - jumlah_penarikan < min_saldo:
                 print(
                 """
                 __________________________________________
@@ -55,7 +55,7 @@ def penarikan_tunai(nasabah_now, jumlah_penarikan):
                 """
                 )
             else:
-                nasabah_now = nasabah_now - jumlah_penarikan
+                nasabah_now["saldo"] -= jumlah_penarikan
                 print(
                 f"""
                 __________________________________________
@@ -65,7 +65,7 @@ def penarikan_tunai(nasabah_now, jumlah_penarikan):
                 |      SILAHKAN MENGAMBIL UANG ANDA      |
                 |            TERIMA KASIH :)             |
                 |                                        |
-                |      SISA SALDO ANDA {nasabah_now}     |
+                | SISA SALDO ANDA {nasabah_now["saldo"]} |
                 |                                        |
                 |________________________________________|
                 """
