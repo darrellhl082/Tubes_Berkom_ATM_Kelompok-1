@@ -11,30 +11,8 @@
 # ALGORITMA
 # Asumsi: input array sudah dibuat; N terdefinisi
 
-data_nasabah = [
-    {
-        "nomor_rekening" : "16524041",
-        "password" : "16524041",
-        "nama": "Rizal Udin",
-        "saldo": 100000
-    },
-    {
-        "nomor_rekening": "16524043",
-        "password" : "16524043",
-        "nama": "Gibran",
-        "saldo": 200000
-    },
-    {
-        "nomor_rekening" : "16524044",
-        "password" : "16524044",
-        "nama" : "Fufufafa",
-        "saldo" : 300000
-    }
-]
 
-
-
-def Otentikasi(Username, Password):
+def Otentikasi(Username, Password, data_nasabah):
     found = False  # found = False; X belum ditemukan
     i = 0
     while i < len(data_nasabah) and not found: #Akan berulang hingga semua dictionary nasabah diperiksa
@@ -52,9 +30,9 @@ def Salah_Otentikasi(): #Program loop ke fungsi ini jika input salah
     return [Username, Password]
 
 
-def Main_Otentikasi():
+def Main_Otentikasi(data_nasabah):
     #Mengambil data dari luar fungsi
-    global data_nasabah
+   
 
     #Input inisial, Nomor Rekening dan Password
     print("Login ke akun masing-masing dengan menginput username dan password") 
@@ -62,7 +40,7 @@ def Main_Otentikasi():
     Password = str(input("Password: "))
     data_nasabah_online = {} #Informasi nasabah kosong
 
-    while not Otentikasi(Username, Password): # Ketika found =false, loop balik ke autentikasi
+    while not Otentikasi(Username, Password, data_nasabah): # Ketika found =false, loop balik ke autentikasi
         Username, Password = Salah_Otentikasi()
 
     for item in data_nasabah: #Menginput data nasabah ke sesi utama
