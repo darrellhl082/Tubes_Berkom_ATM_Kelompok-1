@@ -15,6 +15,7 @@
 # Import fungsi
 from module.data_nasabah import data_nasabah
 from module.main_autentikasi import Main_Otentikasi # fungsi autentikasi
+from module.cek_saldo import cek_saldo # fungsi cek saldo
 
 # Definisi Variabel dan Array
 
@@ -68,10 +69,10 @@ def main():
             input_pilihan_menu = int(input("Pilih menu: "))
             while True:           
                 if input_pilihan_menu == 1:
-                    print("informasi_saldo()")
+                    cek_saldo(nasabah_now)
                     break
                 elif input_pilihan_menu == 2:
-                    print("transfer bank")
+                    transfer(data_nasabah, nasabah_now)
                     break
                 elif input_pilihan_menu == 3:
                     break
