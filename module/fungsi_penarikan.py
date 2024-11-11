@@ -77,5 +77,3 @@ def penarikan_tunai(nasabah_now, jumlah_penarikan):
                 """
                 )
                 break
-
-penarikan_tunai(nasabah_now, None)
