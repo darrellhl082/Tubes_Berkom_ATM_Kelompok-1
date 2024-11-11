@@ -16,6 +16,8 @@
 from module.data_nasabah import data_nasabah
 from module.main_autentikasi import Main_Otentikasi # fungsi autentikasi
 from module.cek_saldo import cek_saldo # fungsi cek saldo
+from module.fungsi_penarikan import penarikan_tunai
+from module.transfer import transfer
 
 # Definisi Variabel dan Array
 
@@ -50,7 +52,7 @@ def main():
 
         list_nominal = [50000, 250000, 500000, 750000, 1000000, 1500000, None]
         if input_pilihan_menu < 8:
-            penarikan_tunai(list_nominal[input_pilihan_menu - 1])
+            penarikan_tunai(nasabah_now, list_nominal[input_pilihan_menu - 1])
         elif input_pilihan_menu == 8:
             print(
         """
