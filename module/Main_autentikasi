@@ -73,6 +73,3 @@ def Main_Otentikasi():
 
 
 # Main program
-nasabah=Main_Otentikasi()
-print("Username dan Password benar")
-print(nasabah) 
