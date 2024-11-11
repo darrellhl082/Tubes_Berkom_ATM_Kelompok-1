@@ -1,34 +1,6 @@
 # Program Transfer ATM
 
-min_saldo = 5000
-
-data_nasabah = [
-    {
-        "nomor_rekening" : "16524041",
-        "password" : "16524041",
-        "nama": "Rizal Udin",
-        "saldo": 100000
-    },
-    {
-        "nomor_rekening": "16524043",
-        "password" : "16524043",
-        "nama": "Gibran",
-        "saldo": 200000
-    },
-    {
-        "nomor_rekening" : "16524044",
-        "password" : "16524044",
-        "nama" : "Fufufafa",
-        "saldo" : 300000
-    }
-]
-
-nasabah_now =     {
-        "nomor_rekening" : "16524044",
-        "password" : "16524044",
-        "nama" : "Fufufafa",
-        "saldo" : 300000
-    }
+min_saldo = 50000
 
 def transfer(data_nasabah, nasabah_now):
     rekening_tujuan = dict()
@@ -95,7 +67,3 @@ def transfer(data_nasabah, nasabah_now):
         elif pilih == "2":
             # nge loop ulang ke input norek, terus masukin ulang lagi
             pass
-
-
-
-transfer(data_nasabah, nasabah_now)
