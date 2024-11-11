@@ -13,30 +13,10 @@
 #
 
 # Import fungsi
-
+from module.data_nasabah import data_nasabah
 from module.main_autentikasi import Main_Otentikasi # fungsi autentikasi
 
 # Definisi Variabel dan Array
-data_nasabah = [
-    {
-        "nomor_rekening" : "16524041",
-        "password" : "16524041",
-        "nama": "Rizal Udin",
-        "saldo": 100000
-    },
-    {
-        "nomor_rekening": "16524043",
-        "password" : "16524043",
-        "nama": "Gibran",
-        "saldo": 200000
-    },
-    {
-        "nomor_rekening" : "16524044",
-        "password" : "16524044",
-        "nama" : "Fufufafa",
-        "saldo" : 300000
-    }
-]
 
 # Definisi Fungsi
 
