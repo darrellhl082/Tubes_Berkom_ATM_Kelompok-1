@@ -59,21 +59,21 @@ def penarikan_tunai(nasabah_now, jumlah_penarikan):
                 |________________________________________|
                 """
                 )
-            else:
-                nasabah_now["saldo"] -= jumlah_penarikan
-                saldo_text = f"SISA SALDO ANDA {nasabah_now["saldo"]}".center(40)
-                print(
-                f"""
-                __________________________________________
-                |                                        |
-                |                                        |
-                |            TRANSAKSI BERHASIL          |
-                |      SILAHKAN MENGAMBIL UANG ANDA      |
-                |            TERIMA KASIH :)             |
-                |                                        |
-                |{saldo_text}|
-                |                                        |
-                |________________________________________|
-                """
-                )
-                break
+        else:
+            nasabah_now["saldo"] -= jumlah_penarikan
+            saldo_text = f"SISA SALDO ANDA {nasabah_now["saldo"]}".center(40)
+            print(
+            f"""
+            __________________________________________
+            |                                        |
+            |                                        |
+            |            TRANSAKSI BERHASIL          |
+            |      SILAHKAN MENGAMBIL UANG ANDA      |
+            |            TERIMA KASIH :)             |
+            |                                        |
+            |{saldo_text}|
+            |                                        |
+            |________________________________________|
+            """
+            )
+            break
