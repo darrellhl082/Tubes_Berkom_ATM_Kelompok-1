@@ -1,11 +1,16 @@
 # Program Fungsi Penarikan ATM
-
+nasabah_now = {"saldo": 500000}
 # saldo = 5000000
 min_saldo = 50000
 def penarikan_tunai(nasabah_now, jumlah_penarikan):
     while True:
         if jumlah_penarikan == None:     
-            jumlah_penarikan = int(input("Rp"))
+            while True:
+                jumlah_penarikan = int(input("Rp"))
+                if jumlah_penarikan%50000 != 0:
+                    pass
+                elif jumlah_penarikan%50000 == 0:
+                    break
             pilih = input("1. TEKAN 1 JIKA BENAR \n2. TEKAN 2 JIKA KOREKSI\n")
             if pilih == 2:
                 pass
@@ -24,7 +29,7 @@ def penarikan_tunai(nasabah_now, jumlah_penarikan):
                 |________________________________________|
                 """
                 )
-            elif nasabah_now < min_saldo:
+            elif nasabah_now["saldo"] < min_saldo:
                 print(
                 """
                 __________________________________________
@@ -39,7 +44,7 @@ def penarikan_tunai(nasabah_now, jumlah_penarikan):
                 |________________________________________|
                 """
                 )
-            elif nasabah_now-jumlah_penarikan < min_saldo:
+            elif nasabah_now["saldo"] - jumlah_penarikan < min_saldo:
                 print(
                 """
                 __________________________________________
@@ -55,7 +60,8 @@ def penarikan_tunai(nasabah_now, jumlah_penarikan):
                 """
                 )
             else:
-                nasabah_now = nasabah_now - jumlah_penarikan
+                nasabah_now["saldo"] -= jumlah_penarikan
+                saldo_text = f"SISA SALDO ANDA {nasabah_now["saldo"]}".center(40)
                 print(
                 f"""
                 __________________________________________
@@ -65,9 +71,11 @@ def penarikan_tunai(nasabah_now, jumlah_penarikan):
                 |      SILAHKAN MENGAMBIL UANG ANDA      |
                 |            TERIMA KASIH :)             |
                 |                                        |
-                |      SISA SALDO ANDA {nasabah_now}     |
+                |{saldo_text}|
                 |                                        |
                 |________________________________________|
                 """
                 )
                 break
+
+penarikan_tunai(nasabah_now, None)
