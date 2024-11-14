@@ -18,15 +18,15 @@ from module.main_autentikasi import Main_Otentikasi # fungsi autentikasi
 from module.cek_saldo import cek_saldo # fungsi cek saldo
 from module.fungsi_penarikan import penarikan_tunai
 from module.transfer import transfer
-
+from module import main_loop_config
 # Definisi Variabel dan Array
 
 # Definisi Fungsi
 
 def main():
-    main_loop = True
+    main_loop_config.main_loop = True
     nasabah_now = Main_Otentikasi(data_nasabah)
-    while main_loop:
+    while main_loop_config.main_loop:
 
         # Kondisi Menu
         print(
@@ -91,7 +91,7 @@ def main():
         
         # Loop Termination
         
-        if not main_loop: # Loop Terminator
+        if not main_loop_config.main_loop: # Loop Terminator
             print(
         """
         __________________________________________
