@@ -180,5 +180,3 @@ def transfer(data_nasabah, nasabah_now):
         elif pilih == "2":
             # nge loop ulang ke input norek, terus masukin ulang lagi
             pass
-
-transfer()
