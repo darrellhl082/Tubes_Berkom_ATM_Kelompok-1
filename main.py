@@ -19,6 +19,7 @@ from module.cek_saldo import cek_saldo # fungsi cek saldo
 from module.fungsi_penarikan import penarikan_tunai
 from module.transfer import transfer
 from module import main_loop_config
+from time import sleep
 # Definisi Variabel dan Array
 
 # Definisi Fungsi
@@ -26,8 +27,10 @@ from module import main_loop_config
 def main():
     main_loop_config.main_loop = True
     nasabah_now = Main_Otentikasi(data_nasabah)
-    while main_loop_config.main_loop:
 
+    while main_loop_config.main_loop:
+        sleep(1.5)
+        
         # Kondisi Menu
         print(
         """
@@ -38,8 +41,8 @@ def main():
         | (0) CANCEL                             |
         | (1) 50.000      (5) 1.000.000          |
         | (2) 250.000     (6) 1.500.000          |
-        | (3) 500.000     (7) Jumlah Lainnya     |
-        | (4) 750.000     (8) Transaksi Lainnya  |
+        | (3) 500.000     (7) JUMLAH LAINNYA     |
+        | (4) 750.000     (8) TRANSAKSI LAINNYA  |
         |________________________________________|
         """
         )
@@ -50,11 +53,16 @@ def main():
             else:
                 break
 
+        sleep(0.5)
         list_nominal = [50000, 250000, 500000, 750000, 1000000, 1500000, None]
+
+        # Penarikan
         if input_pilihan_menu == 0:
-            main_loop = False
+            main_loop_config.main_loop = False
         elif input_pilihan_menu < 8:
             penarikan_tunai(nasabah_now, list_nominal[input_pilihan_menu - 1])
+        
+        # Bagian transaksi lainnya
         elif input_pilihan_menu == 8:
             print(
         """
@@ -71,9 +79,11 @@ def main():
         """
             )
             input_pilihan_menu = int(input("Pilih menu: "))
+            sleep(0.5)
+
             while True:
                 if input_pilihan_menu == 0:
-                    main_loop = False
+                    main_loop_config.main_loop = False
                     break
                 if input_pilihan_menu == 1:
                     cek_saldo(nasabah_now)
@@ -106,6 +116,7 @@ def main():
         |________________________________________|
         """
             )
+            sleep(1.5)
             break
 
 
