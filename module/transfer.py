@@ -2,7 +2,7 @@
 
 min_saldo = 50000
 
-def transfer(data_nasabah. nasabah_now):
+def transfer(data_nasabah, nasabah_now):
     rekening_tujuan = dict()
 
     while True:
