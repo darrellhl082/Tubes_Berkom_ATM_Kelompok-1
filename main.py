@@ -13,40 +13,20 @@
 #
 
 # Import fungsi
-
+from module.data_nasabah import data_nasabah
 from module.main_autentikasi import Main_Otentikasi # fungsi autentikasi
-
+from module.cek_saldo import cek_saldo # fungsi cek saldo
+from module.fungsi_penarikan import penarikan_tunai
+from module.transfer import transfer
+from module import main_loop_config
 # Definisi Variabel dan Array
-data_nasabah = [
-    {
-        "nomor_rekening" : "16524041",
-        "password" : "16524041",
-        "nama": "Rizal Udin",
-        "saldo": 100000
-    },
-    {
-        "nomor_rekening": "16524043",
-        "password" : "16524043",
-        "nama": "Gibran",
-        "saldo": 200000
-    },
-    {
-        "nomor_rekening" : "16524044",
-        "password" : "16524044",
-        "nama" : "Fufufafa",
-        "saldo" : 300000
-    }
-]
 
 # Definisi Fungsi
 
-def penarikan_tunai(jumlah):
-    print(jumlah)
-
 def main():
-    main_loop = True
+    main_loop_config.main_loop = True
     nasabah_now = Main_Otentikasi(data_nasabah)
-    while main_loop:
+    while main_loop_config.main_loop:
 
         # Kondisi Menu
         print(
@@ -55,7 +35,7 @@ def main():
         |                                        |
         |            PENARIKAN TUNAI             |
         | SILAHKAN MASUKKAN ANGKA SESUAI PILIHAN |
-        |                                        |
+        | (0) CANCEL                             |
         | (1) 50.000      (5) 1.000.000          |
         | (2) 250.000     (6) 1.500.000          |
         | (3) 500.000     (7) Jumlah Lainnya     |
@@ -64,10 +44,17 @@ def main():
         """
         )
         input_pilihan_menu = int(input("Pilih menu: "))
+        while True:  
+            if input_pilihan_menu < 0 or input_pilihan_menu > 8:
+                input_pilihan_menu = int(input("Opsi tidak ditemukan. Pilih menu: "))
+            else:
+                break
 
         list_nominal = [50000, 250000, 500000, 750000, 1000000, 1500000, None]
-        if input_pilihan_menu < 7:
-            penarikan_tunai(list_nominal[input_pilihan_menu - 1])
+        if input_pilihan_menu == 0:
+            main_loop = False
+        elif input_pilihan_menu < 8:
+            penarikan_tunai(nasabah_now, list_nominal[input_pilihan_menu - 1])
         elif input_pilihan_menu == 8:
             print(
         """
@@ -76,32 +63,49 @@ def main():
         |             TRANSAKSI LAIN             |
         | SILAHKAN MASUKKAN ANGKA SESUAI PILIHAN |
         |                                        |
+        | (0) CANCEL                             |
         | (1) INFORMASI SALDO                    |
         | (2) TRANSFER ANTAR BANK                |
         | (3) PENARIKAN TUNAI                    |
-        |                                        |
         |________________________________________|
         """
             )
             input_pilihan_menu = int(input("Pilih menu: "))
-            while True:           
+            while True:
+                if input_pilihan_menu == 0:
+                    main_loop = False
+                    break
                 if input_pilihan_menu == 1:
-                    print("informasi_saldo()")
+                    cek_saldo(nasabah_now)
                     break
                 elif input_pilihan_menu == 2:
-                    print("transfer bank")
+                    transfer(data_nasabah, nasabah_now)
                     break
                 elif input_pilihan_menu == 3:
                     break
                 else:
-                    input_pilihan_menu = int(input("Pilih menu: "))
+                    input_pilihan_menu = int(input("Opsi tidak ditemukan. Pilih menu: "))
 
 
     
         
         # Loop Termination
         
-        if not main_loop: # Loop Terminator
+        if not main_loop_config.main_loop: # Loop Terminator
+            print(
+        """
+        __________________________________________
+        |                                        |
+        |                                        |
+        |                                        |
+        |              TERIMA KASIH              |
+        |                                        |
+        |            SAMPAI JUMPA LAGI           |
+        |                                        |
+        |                                        |
+        |________________________________________|
+        """
+            )
             break
 
 

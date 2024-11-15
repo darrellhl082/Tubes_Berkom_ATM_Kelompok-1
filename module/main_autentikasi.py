@@ -23,10 +23,20 @@ def Otentikasi(Username, Password, data_nasabah):
     return found
 
 def Salah_Otentikasi(): #Program loop ke fungsi ini jika input salah
-    print("Username atau Password salah")
-    print("Login ke akun masing-masing dengan menginput username dan password")
-    Username = str(input("Username: "))
-    Password = str(input("Password: "))
+    print("""
+        __________________________________________
+        |                                        |
+        |                                        |
+        |                  LOGIN                 |
+        |                                        |
+        |   NOMOR REKENING ATAU PASSWORD SALAH   |
+        |              MOHON LAGI                |
+        |                                        |
+        |                                        |
+        |________________________________________|
+        """)
+    Username = str(input("NOMOR REKENING: "))
+    Password = str(input("PASSWORD: "))
     return [Username, Password]
 
 
@@ -35,9 +45,21 @@ def Main_Otentikasi(data_nasabah):
    
 
     #Input inisial, Nomor Rekening dan Password
-    print("Login ke akun masing-masing dengan menginput username dan password") 
-    Username = str(input("Username: "))
-    Password = str(input("Password: "))
+    print( 
+        """
+        __________________________________________
+        |                                        |
+        |                                        |
+        |                  LOGIN                 |
+        |                                        |
+        |       MASUKKAN NOMOR REKENING DAN      |
+        |                PASSWORD                |
+        |                                        |
+        |                                        |
+        |________________________________________|
+        """)
+    Username = str(input("NOMOR REKENING: "))
+    Password = str(input("PASSWORD: "))
     data_nasabah_online = {} #Informasi nasabah kosong
 
     while not Otentikasi(Username, Password, data_nasabah): # Ketika found =false, loop balik ke autentikasi

@@ -1,11 +1,13 @@
-def cek_saldo(data_nasabah_online):
+from module import main_loop_config
+def cek_saldo(nasabah_now):
+    saldo_text = f"{nasabah_now["saldo"]}".center(40)
     print(
         f"""
         __________________________________________
         |                                        |
         |              JUMLAH SALDO              |
         |                                        |
-        |     {data_nasabah_online["Saldo"]}     |
+        |{saldo_text}|
         |                 RUPIAH                 |
         |                                        |
         |     APAKAH INGIN LANJUT TRANSAKSI?     |
@@ -13,6 +15,6 @@ def cek_saldo(data_nasabah_online):
         |________________________________________|
         """)
 
-    input_pilihan = input("Pilih menu: ")
+    input_pilihan = int(input("Pilih menu: "))
     if input_pilihan == 2:
-        quit()
+        main_loop_config.main_loop = False
