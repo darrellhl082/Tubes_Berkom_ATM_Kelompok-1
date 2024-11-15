@@ -2,7 +2,7 @@
 
 min_saldo = 50000
 
-def transfer(data_nasabah, nasabah_now):
+def transfer(data_nasabah. nasabah_now):
     rekening_tujuan = dict()
 
     while True:
@@ -12,10 +12,10 @@ def transfer(data_nasabah, nasabah_now):
             print(
             """
             __________________________________________
-            |              A T M TRANSFER            |
+            |                                        |
+            |                TRANSFER                |
             |                                        |
             |     MASUKKAN NOMOR REKENING TUJUAN     |
-            |                                        |
             |                                        |
             |                                        |
             |                                        |
@@ -27,17 +27,20 @@ def transfer(data_nasabah, nasabah_now):
             for item in data_nasabah:
                 if norek == item["nomor_rekening"]:
                     rekening_tujuan = item
+                    norek_tujuan_text = f"NOMOR REKENING {item["nomor_rekening"]}".center(40)
+                    nama_text = f"NAMA: {item["nama"]}".center(40)
+
                     print(
                     f"""
                     __________________________________________
-                    |              A T M TRANSFER            |
                     |                                        |
+                    |                TRANSFER                |
                     |                                        |
-                    |        NOMOR REKENING: {item["nomor_rekening"]}        |
-                    |        NAMA: {item["nama"]}                     |
+                    |{norek_tujuan_text}|
+                    |{nama_text}|
                     |                                        |
-                    |                 1. TEKAN 1 JIKA BENAR  |
-                    |                 2. TEKAN 2 JIKA SALAH  |
+                    |                  (1) TEKAN JIKA BENAR  |
+                    |                  (2) TEKAN JIKA SALAH  |
                     |________________________________________|
                     """
                     )
@@ -45,13 +48,14 @@ def transfer(data_nasabah, nasabah_now):
                 else:
                     pass
             if not rekening_tujuan:
+                norek_text = f"NOMOR REKENING {norek}".center(40)
                 print(
                 f"""
                 __________________________________________
-                |              A T M TRANSFER            |
                 |                                        |
+                |                TRANSFER                |
                 |                                        |
-                |         NOMOR REKENING:{norek}        |
+                |{norek_text}|
                 |                                        |            
                 |                                        |
                 |     NOMOR REKENING TIDAK DITEMUKAN     |
@@ -67,10 +71,10 @@ def transfer(data_nasabah, nasabah_now):
                 print(
                 """
                 __________________________________________
-                |              A T M TRANSFER            |
+                |                                        |
+                |                TRANSFER                |
                 |                                        |
                 |    MASUKKAN JUMLAH NOMINAL TRANSFER    |
-                |                                        |
                 |                                        |
                 |                                        |
                 |                                        |
@@ -79,18 +83,19 @@ def transfer(data_nasabah, nasabah_now):
                 """
                 )
                 nominal_transfer = int(input())
+                nominal_text = f"{nominal_transfer}".center(40)
 
                 konfirmasi = input(
                 f"""
                 __________________________________________
-                |              A T M TRANSFER            |
                 |                                        |
+                |                TRANSFER                |
                 |    MASUKKAN JUMLAH NOMINAL TRANSFER    |
-                |           {nominal_transfer}                 |
+                |{nominal_text}|
                 |                                        |
-                |                 1. TEKAN 1 JIKA BENAR  |
-                |                 2. TEKAN 2 JIKA SALAH  |
-                |      3. TEKAN CANCEL UNTUL PEMBATALAN  |
+                |                            (0) CANCEL  |
+                |                  (1) TEKAN JIKA BENAR  |
+                |                  (2) TEKAN JIKA SALAH  |
                 |________________________________________|
                 """
                 )
@@ -99,13 +104,13 @@ def transfer(data_nasabah, nasabah_now):
                         print(
                         f"""
                         __________________________________________
-                        |              A T M TRANSFER            |
-                        |                                        |
-                        |    MASUKKAN JUMLAH NOMINAL TRANSFER    |
-                        |                {nominal_transfer}                 |
                         |                                        |
                         |                                        |
+                        |                                        |
+                        |            TRANSAKSI GAGAL             |
                         |       SALDO ANDA TIDAK MENCUKUPI       |
+                        |                                        |
+                        |                                        |
                         |                                        |
                         |________________________________________|
                         """
@@ -114,13 +119,13 @@ def transfer(data_nasabah, nasabah_now):
                         print(
                         f"""
                         __________________________________________
-                        |              A T M TRANSFER            |
-                        |                                        |
-                        |    MASUKKAN JUMLAH NOMINAL TRANSFER    |
-                        |                {nominal_transfer}                 |
                         |                                        |
                         |                                        |
+                        |                                        |
+                        |            TRANSAKSI GAGAL             |
                         |       SALDO ANDA TIDAK MENCUKUPI       |
+                        |                                        |
+                        |                                        |
                         |                                        |
                         |________________________________________|
                         """
@@ -129,13 +134,13 @@ def transfer(data_nasabah, nasabah_now):
                         print(
                         f"""
                         __________________________________________
-                        |              A T M TRANSFER            |
-                        |                                        |
-                        |    MASUKKAN JUMLAH NOMINAL TRANSFER    |
-                        |                {nominal_transfer}                 |
                         |                                        |
                         |                                        |
+                        |                                        |
+                        |            TRANSAKSI GAGAL             |
                         |       SALDO ANDA TIDAK MENCUKUPI       |
+                        |                                        |
+                        |                                        |
                         |                                        |
                         |________________________________________|
                         """
@@ -143,16 +148,19 @@ def transfer(data_nasabah, nasabah_now):
                     else:
                         nasabah_now["saldo"] -= nominal_transfer
                         rekening_tujuan["saldo"] += nominal_transfer
+                        
+                        sisa_text = f"SISA SALDO ANDA {nasabah_now["saldo"]}".center(40)
+
                         print(
                         f"""
                         __________________________________________
-                        |              A T M TRANSFER            |
                         |                                        |
-                        |            TRANSFER BERHASIL           |
-                        |                     {nominal_transfer}                 |
                         |                                        |
-                        |           SALDO ANDA SAAT INI          |
-                        |                     {nasabah_now["saldo"]}             |
+                        |            TRANSAKSI BERHASIL          |
+                        |              TERIMA KASIH :)           |
+                        |                                        |
+                        |                                        |
+                        |{sisa_text}|
                         |                                        |
                         |________________________________________|
                         """
@@ -173,10 +181,11 @@ def transfer(data_nasabah, nasabah_now):
                 elif konfirmasi == "2":
                     # nge loop ulang ke input nominal transfer,tterus masukin ulang lagi
                     pass
-                elif konfirmasi == "3":
+                elif konfirmasi == "0":
                     quit()
             break
             
         elif pilih == "2":
             # nge loop ulang ke input norek, terus masukin ulang lagi
             pass
+
