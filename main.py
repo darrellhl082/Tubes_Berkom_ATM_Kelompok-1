@@ -21,7 +21,7 @@ def main():
     # Program bagian utama pada ATM yang akan menampilkan menu dan mengeksekusi fungsi/prosedur pada ATM secara berulang hingga diberhentikan
 
     # KAMUS LOKAL
-    # saldo_text: str; jumlah saldo (dicenter dalam kotak)
+    # main_loop_config.main_loop: bool; menandakan jika prosedur akan berulang atau tidak
     # input_pilihan_menu: str; memegang input pilihan menu
     # nasabah_now: dict; memegang data pengguna
     # list_nominal: list of integers; nominal-nominal penarikan
