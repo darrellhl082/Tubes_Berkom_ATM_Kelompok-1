@@ -6,44 +6,165 @@ def transfer(data_nasabah, nasabah_now):
     rekening_tujuan = dict()
 
     while True:
-        print("TRANSFER")
-
         # Validasi rekening tujuan
         found = False
         while not found:
-            print("MASUKKAN NOMOR REKENING TUJUAN")
+            print(
+            """
+                __________________________________________
+                |                                        |
+                |                TRANSFER                |
+                |                                        |
+                |     MASUKKAN NOMOR REKENING TUJUAN     |
+                |                                        |
+                |                                        |
+                |                                        |
+                |                                        |
+                |________________________________________|
+            """
+            )
             norek = str(input())   
             for item in data_nasabah:
                 if norek == item["nomor_rekening"]:
                     rekening_tujuan = item
-                    print("NOMOR REKENING:", item["nomor_rekening"])
-                    print("NAMA:", item["nama"])
+                    norek_tujuan_text = f"NOMOR REKENING {item["nomor_rekening"]}".center(40)
+                    nama_text = f"NAMA: {item["nama"]}".center(40)
+
+                    print(
+                    f"""
+                __________________________________________
+                |                                        |
+                |                TRANSFER                |
+                |                                        |
+                |{norek_tujuan_text}|
+                |{nama_text}|
+                |                                        |
+                |                  (1) TEKAN JIKA BENAR  |
+                |                  (2) TEKAN JIKA SALAH  |
+                |________________________________________|
+                    """
+                    )
                     found = True
                 else:
                     pass
             if not rekening_tujuan:
-                print("NOMOR REKENING TIDAK DITEMUKAN")
+                norek_text = f"NOMOR REKENING {norek}".center(40)
+                print(
+                f"""
+                __________________________________________
+                |                                        |
+                |                TRANSFER                |
+                |                                        |
+                |{norek_text}|
+                |                                        |            
+                |                                        |
+                |     NOMOR REKENING TIDAK DITEMUKAN     |
+                |                                        |
+                |________________________________________|
+                """
+                )
+                
         
-        pilih = input("1. TEKAN 1 JIKA BENAR\n2. TEKAN 2 JIKA SALAH\n")
+        pilih = input()
         if pilih == "1":
             while True:
-                print("MASUKKAN JUMLAH NOMINAL YANG AKAN DITRANSFER")
+                print(
+                """
+                __________________________________________
+                |                                        |
+                |                TRANSFER                |
+                |                                        |
+                |    MASUKKAN JUMLAH NOMINAL TRANSFER    |
+                |                                        |
+                |                                        |
+                |                                        |
+                |                                        |
+                |________________________________________|
+                """
+                )
                 nominal_transfer = int(input())
+                nominal_text = f"{nominal_transfer}".center(40)
 
-                konfirmasi = input("1. TEKAN 1 JIKA BENAR\n2. TEKAN 2 JIKA SALAH\n3. TEKAN CANCEL UNTUL PEMBATALAN\n")
+                konfirmasi = input(
+                f"""
+                __________________________________________
+                |                                        |
+                |                TRANSFER                |
+                |    MASUKKAN JUMLAH NOMINAL TRANSFER    |
+                |{nominal_text}|
+                |                                        |
+                |                            (0) CANCEL  |
+                |                  (1) TEKAN JIKA BENAR  |
+                |                  (2) TEKAN JIKA SALAH  |
+                |________________________________________|
+                """
+                )
                 if konfirmasi == "1":
                     if nominal_transfer > nasabah_now["saldo"]:
-                        print("SALDO ANDA TIDAK MENCUKUPI")
+                        print(
+                        f"""
+                __________________________________________
+                |                                        |
+                |                                        |
+                |                                        |
+                |            TRANSAKSI GAGAL             |
+                |       SALDO ANDA TIDAK MENCUKUPI       |
+                |                                        |
+                |                                        |
+                |                                        |
+                |________________________________________|
+                        """
+                        )
                     elif nasabah_now["saldo"] < min_saldo:  # min_saldo = 50000
-                        print("SALDO ANDA TIDAK MENCUKUPI")
+                        print(
+                        f"""
+                __________________________________________
+                |                                        |
+                |                                        |
+                |                                        |
+                |            TRANSAKSI GAGAL             |
+                |       SALDO ANDA TIDAK MENCUKUPI       |
+                |                                        |
+                |                                        |
+                |                                        |
+                |________________________________________|
+                        """
+                        )
                     elif nasabah_now["saldo"]-nominal_transfer < min_saldo: # min_saldo = 50000
-                        print("SALDO ANDA TIDAK MENCUKUPI")
+                        print(
+                        f"""
+                __________________________________________
+                |                                        |
+                |                                        |
+                |                                        |
+                |            TRANSAKSI GAGAL             |
+                |       SALDO ANDA TIDAK MENCUKUPI       |
+                |                                        |
+                |                                        |
+                |                                        |
+                |________________________________________|
+                        """
+                        )
                     else:
                         nasabah_now["saldo"] -= nominal_transfer
                         rekening_tujuan["saldo"] += nominal_transfer
-                        print("INVOICE")
-                        print(f"SALDO ANDA SAAT INI {nasabah_now["saldo"]}")
+                        
+                        sisa_text = f"SISA SALDO ANDA {nasabah_now["saldo"]}".center(40)
 
+                        print(
+                        f"""
+                __________________________________________
+                |                                        |
+                |                                        |
+                |            TRANSAKSI BERHASIL          |
+                |              TERIMA KASIH :)           |
+                |                                        |
+                |                                        |
+                |{sisa_text}|
+                |                                        |
+                |________________________________________|
+                        """
+                        )
                         # update data_nasabah menjadi nasabah_now
                         for item in data_nasabah:
                             if(item["nomor_rekening"] == nasabah_now["nomor_rekening"]):
@@ -60,10 +181,11 @@ def transfer(data_nasabah, nasabah_now):
                 elif konfirmasi == "2":
                     # nge loop ulang ke input nominal transfer,tterus masukin ulang lagi
                     pass
-                elif konfirmasi == "3":
+                elif konfirmasi == "0":
                     quit()
             break
             
         elif pilih == "2":
             # nge loop ulang ke input norek, terus masukin ulang lagi
             pass
+
