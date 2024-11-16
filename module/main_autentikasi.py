@@ -30,7 +30,7 @@ def Salah_Otentikasi(): #Program loop ke fungsi ini jika input salah
         |                  LOGIN                 |
         |                                        |
         |   NOMOR REKENING ATAU PASSWORD SALAH   |
-        |            MOHON COBA LAGI             |
+        |             MOHON COBA LAGI            |
         |                                        |
         |                                        |
         |________________________________________|
