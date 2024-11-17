@@ -25,11 +25,10 @@ def transfer(data_nasabah, nasabah_now):
             )
             norek = str(input())   
             for item in data_nasabah:
-                if norek == item["nomor_rekening"]:
+                if norek == item["nomor_rekening"] and norek != nasabah_now["nomor_rekening"]:
                     rekening_tujuan = item
                     norek_tujuan_text = f"NOMOR REKENING {item["nomor_rekening"]}".center(40)
                     nama_text = f"NAMA: {item["nama"]}".center(40)
-
                     print(
                     f"""
                 __________________________________________
@@ -44,7 +43,7 @@ def transfer(data_nasabah, nasabah_now):
                 |________________________________________|
                     """
                     )
-                    found = True
+                    found = True  
                 else:
                     pass
             if not rekening_tujuan:
@@ -188,4 +187,3 @@ def transfer(data_nasabah, nasabah_now):
         elif pilih == "2":
             # nge loop ulang ke input norek, terus masukin ulang lagi
             pass
-
