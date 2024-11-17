@@ -1,5 +1,6 @@
 # Program Fungsi Penarikan ATM
 # saldo = 5000000
+nasabah_now = {"saldo": 10}
 min_saldo = 50000
 def penarikan_tunai(nasabah_now, jumlah_penarikan):
     while True:
@@ -29,6 +30,7 @@ def penarikan_tunai(nasabah_now, jumlah_penarikan):
         |________________________________________|
         """
             )
+            break
         elif nasabah_now["saldo"] < min_saldo:
             print(
         """
@@ -77,3 +79,5 @@ def penarikan_tunai(nasabah_now, jumlah_penarikan):
         """
             )
             break
+
+penarikan_tunai(nasabah_now, 100000000000000000)
