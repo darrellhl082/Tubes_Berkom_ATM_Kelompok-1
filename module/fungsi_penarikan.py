@@ -80,4 +80,3 @@ def penarikan_tunai(nasabah_now, jumlah_penarikan):
             )
             break
 
-penarikan_tunai(nasabah_now, 100000000000000000)
