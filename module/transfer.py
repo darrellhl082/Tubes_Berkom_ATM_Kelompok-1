@@ -1,4 +1,12 @@
 # Program Transfer ATM
+# Memungkinkan nasabah untuk memindahkan uang dari satu rekening bank ke rekening bank lainnya
+
+# KAMUS
+# rekening_tujuan : array of dict
+# norek : str
+# pilih, nominal_transfer, konfirmasi : int
+
+# ALGORITMA
 
 min_saldo = 50000
 
@@ -6,7 +14,7 @@ def transfer(data_nasabah, nasabah_now):
     rekening_tujuan = dict()
 
     while True:
-        # Validasi rekening tujuan
+        # validasi rekening tujuan
         found = False
         while not found:
             print(
@@ -25,6 +33,7 @@ def transfer(data_nasabah, nasabah_now):
             )
             norek = str(input())   
             for item in data_nasabah:
+                # jika nomor rekening terdaftar, program akan menampilkan identitas nasabah untuk mengonfirmasi
                 if norek == item["nomor_rekening"] and norek != nasabah_now["nomor_rekening"]:
                     rekening_tujuan = item
                     norek_tujuan_text = f"NOMOR REKENING {item["nomor_rekening"]}".center(40)
@@ -63,8 +72,8 @@ def transfer(data_nasabah, nasabah_now):
                 """
                 )
                 
-        
-        pilih = input()
+        # input nominal transfer
+        pilih = int(input())
         if pilih == "1":
             while True:
                 print(
@@ -84,7 +93,7 @@ def transfer(data_nasabah, nasabah_now):
                 nominal_transfer = int(input())
                 nominal_text = f"{nominal_transfer}".center(40)
 
-                konfirmasi = input(
+                konfirmasi = int(input(
                 f"""
                 __________________________________________
                 |                                        |
@@ -97,7 +106,7 @@ def transfer(data_nasabah, nasabah_now):
                 |                  (2) TEKAN JIKA SALAH  |
                 |________________________________________|
                 """
-                )
+                ))
                 if konfirmasi == "1":
                     if nominal_transfer > nasabah_now["saldo"]:
                         print(
