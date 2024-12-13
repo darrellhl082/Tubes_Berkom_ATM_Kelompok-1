@@ -1,6 +1,5 @@
 # Program Fungsi Penarikan ATM
 # saldo = 5000000
-nasabah_now = {"saldo": 10}
 min_saldo = 50000
 def penarikan_tunai(nasabah_now, jumlah_penarikan):
     while True:
