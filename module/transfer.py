@@ -190,7 +190,7 @@ def transfer(data_nasabah, nasabah_now):
                     status_transfer = True
 
             elif konfirmasi == 2:
-                # nge loop ulang ke input nominal transfer,tterus masukin ulang lagi
+                # nge loop ulang ke input nominal transfer,terus masukin ulang lagi
                 pass
             elif konfirmasi == 0:
                 quit()
