@@ -74,7 +74,7 @@ def transfer(data_nasabah, nasabah_now):
                 
         # input nominal transfer
         pilih = int(input())
-        if pilih == "1":
+        if pilih == 1:
             while True:
                 print(
                 """
@@ -107,7 +107,7 @@ def transfer(data_nasabah, nasabah_now):
         |________________________________________|
                 """
                 ))
-                if konfirmasi == "1":
+                if konfirmasi == 1:
                     if nominal_transfer > nasabah_now["saldo"]:
                         print(
                         f"""
@@ -186,13 +186,13 @@ def transfer(data_nasabah, nasabah_now):
                                 break
                         break
 
-                elif konfirmasi == "2":
+                elif konfirmasi == 2:
                     # nge loop ulang ke input nominal transfer,tterus masukin ulang lagi
                     pass
-                elif konfirmasi == "0":
+                elif konfirmasi == 0:
                     quit()
             break
             
-        elif pilih == "2":
+        elif pilih == 2:
             # nge loop ulang ke input norek, terus masukin ulang lagi
             pass
