@@ -20,16 +20,16 @@ def transfer(data_nasabah, nasabah_now):
         while not found:
             print(
             """
-                __________________________________________
-                |                                        |
-                |                TRANSFER                |
-                |                                        |
-                |     MASUKKAN NOMOR REKENING TUJUAN     |
-                |                                        |
-                |                                        |
-                |                                        |
-                |                                        |
-                |________________________________________|
+        __________________________________________
+        |                                        |
+        |                TRANSFER                |
+        |                                        |
+        |     MASUKKAN NOMOR REKENING TUJUAN     |
+        |                                        |
+        |                                        |
+        |                                        |
+        |                                        |
+        |________________________________________|
             """
             )
             norek = str(input())
@@ -44,16 +44,16 @@ def transfer(data_nasabah, nasabah_now):
                     
                     print(
                     f"""
-                __________________________________________
-                |                                        |
-                |                TRANSFER                |
-                |                                        |
-                |{norek_tujuan_text}|
-                |{nama_text}|
-                |                                        |
-                |                  (1) TEKAN JIKA BENAR  |
-                |                  (2) TEKAN JIKA SALAH  |
-                |________________________________________|
+        __________________________________________
+        |                                        |
+        |                TRANSFER                |
+        |                                        |
+        |{norek_tujuan_text}|
+        |{nama_text}|
+        |                                        |
+        |                  (1) TEKAN JIKA BENAR  |
+        |                  (2) TEKAN JIKA SALAH  |
+        |________________________________________|
                     """
                     )
                 else:
@@ -62,25 +62,25 @@ def transfer(data_nasabah, nasabah_now):
                 norek_text = f"NOMOR REKENING {norek}".center(40)
                 print(
                 f"""
-                __________________________________________
-                |                                        |
-                |                TRANSFER                |
-                |                                        |
-                |{norek_text}|
-                |                                        |            
-                |                                        |
-                |     NOMOR REKENING TIDAK DITEMUKAN     |
-                |                                        |
-                |________________________________________|
+        __________________________________________
+        |                                        |
+        |                TRANSFER                |
+        |                                        |
+        |{norek_text}|
+        |                                        |            
+        |                                        |
+        |     NOMOR REKENING TIDAK DITEMUKAN     |
+        |                                        |
+        |________________________________________|
                 """
                 )
                 
         # input nominal transfer
-        
-        status_transfer = False
-        while not status_transfer:
-            print(
-            """
+        pilih = int(input())
+        if pilih == "1":
+            while True:
+                print(
+                """
                 __________________________________________
                 |                                        |
                 |                TRANSFER                |
@@ -91,13 +91,13 @@ def transfer(data_nasabah, nasabah_now):
                 |                                        |
                 |                                        |
                 |________________________________________|
-            """
-            )
-            nominal_transfer = int(input())
-            nominal_text = f"{nominal_transfer}".center(40)
+                """
+                )
+                nominal_transfer = int(input())
+                nominal_text = f"{nominal_transfer}".center(40)
 
-            konfirmasi = int(input(
-            f"""
+                konfirmasi = int(input(
+                f"""
                 __________________________________________
                 |                                        |
                 |                TRANSFER                |
@@ -108,12 +108,12 @@ def transfer(data_nasabah, nasabah_now):
                 |                  (1) TEKAN JIKA BENAR  |
                 |                  (2) TEKAN JIKA SALAH  |
                 |________________________________________|
-            """
-            ))
-            if konfirmasi == 1:
-                if nominal_transfer > nasabah_now["saldo"]:
-                    print(
-                    f"""
+                """
+                ))
+                if konfirmasi == "1":
+                    if nominal_transfer > nasabah_now["saldo"]:
+                        print(
+                        f"""
                 __________________________________________
                 |                                        |
                 |                                        |
@@ -124,11 +124,11 @@ def transfer(data_nasabah, nasabah_now):
                 |                                        |
                 |                                        |
                 |________________________________________|
-                    """
-                    )
-                elif nasabah_now["saldo"] < min_saldo:  # min_saldo = 50000
-                    print(
-                    f"""
+                        """
+                        )
+                    elif nasabah_now["saldo"] < min_saldo:  # min_saldo = 50000
+                        print(
+                        f"""
                 __________________________________________
                 |                                        |
                 |                                        |
@@ -139,11 +139,11 @@ def transfer(data_nasabah, nasabah_now):
                 |                                        |
                 |                                        |
                 |________________________________________|
-                    """
-                    )
-                elif nasabah_now["saldo"]-nominal_transfer < min_saldo: # min_saldo = 50000
-                    print(
-                    f"""
+                        """
+                        )
+                    elif nasabah_now["saldo"]-nominal_transfer < min_saldo: # min_saldo = 50000
+                        print(
+                        f"""
                 __________________________________________
                 |                                        |
                 |                                        |
@@ -154,16 +154,16 @@ def transfer(data_nasabah, nasabah_now):
                 |                                        |
                 |                                        |
                 |________________________________________|
-                    """
-                    )
-                else:
-                    nasabah_now["saldo"] -= nominal_transfer
-                    rekening_tujuan["saldo"] += nominal_transfer
-                    
-                    sisa_text = f"SISA SALDO ANDA {nasabah_now["saldo"]}".center(40)
+                        """
+                        )
+                    else:
+                        nasabah_now["saldo"] -= nominal_transfer
+                        rekening_tujuan["saldo"] += nominal_transfer
+                        
+                        sisa_text = f"SISA SALDO ANDA {nasabah_now["saldo"]}".center(40)
 
-                    print(
-                    f"""
+                        print(
+                        f"""
                 __________________________________________
                 |                                        |
                 |                                        |
@@ -174,13 +174,13 @@ def transfer(data_nasabah, nasabah_now):
                 |{sisa_text}|
                 |                                        |
                 |________________________________________|
-                    """
-                    )
-                    # update data_nasabah menjadi nasabah_now
-                    for item in data_nasabah:
-                        if(item["nomor_rekening"] == nasabah_now["nomor_rekening"]):
-                            item = nasabah_now
-                            break
+                        """
+                        )
+                        # update data_nasabah menjadi nasabah_now
+                        for item in data_nasabah:
+                            if(item["nomor_rekening"] == nasabah_now["nomor_rekening"]):
+                                item = nasabah_now
+                                break
 
                     # update data di rekening_tujuan
                     for item in data_nasabah:
