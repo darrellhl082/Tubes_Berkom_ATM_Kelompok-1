@@ -1,5 +1,4 @@
-data_nasabah= [
-    #Contoh Bank dengan nomor rekening 165
+ [
     {
     "nomor_rekening" : "16524001" ,
     "password" : "230224",
