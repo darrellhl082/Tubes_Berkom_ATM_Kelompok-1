@@ -1,0 +1,51 @@
+import json
+import os
+
+def load_data():
+    try:
+        # Dapatkan path ke file JSON di dalam folder 'module'
+        file_path = os.path.join(os.path.dirname(__file__), 'data_nasabah.json')
+
+        with open(file_path, 'r') as file:
+            data = json.load(file)
+            print(f"Data loaded successfully: {data}")
+            return data
+    except FileNotFoundError:
+        print("data_nasabah.json not found.")
+        return []  # Return daftar kosong jika file tidak ada
+    except json.JSONDecodeError:
+        print("Error decoding JSON.")
+        return []  # Return daftar kosong jika JSON invalid
+
+def save_data(data):
+    # Dapatkan path ke file JSON di dalam folder 'module'
+    file_path = os.path.join(os.path.dirname(__file__), 'data_nasabah.json')
+
+    try:
+        with open(file_path, 'w') as file:
+            json.dump(data, file, indent=4)
+        print(f"Data saved successfully to {file_path}")
+    except Exception as e:
+        print(f"Error saving data: {e}")
+
+def update_saldo(nasabah_data, nomor_rekening, new_saldo):
+    """
+    Update the saldo of a specific nasabah by nomor_rekening.
+    
+    :param nasabah_data: List of nasabah data (list of dictionaries).
+    :param nomor_rekening: The account number to search for.
+    :param new_saldo: The new saldo value to set for that account.
+    :return: True if saldo was updated successfully, False if account was not found.
+    """
+    # Cari akun dengan nomor_rekening
+    nasabah = next((nasabah for nasabah in nasabah_data if nasabah["nomor_rekening"] == nomor_rekening), None)
+
+    if nasabah:
+        # Update saldo jika akun ditemukan
+        nasabah['saldo'] = new_saldo
+        save_data(nasabah_data)  # Simpan data yang diperbarui ke file
+        print(f"Saldo updated for {nasabah['nama']} to {nasabah['saldo']}")
+        return True
+    else:
+        print(f"Account with nomor_rekening {nomor_rekening} not found.")
+        return False
