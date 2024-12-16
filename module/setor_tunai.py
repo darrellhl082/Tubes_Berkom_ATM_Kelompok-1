@@ -1,6 +1,6 @@
 # Program Setor Tunai
 
-def setor_tunai(nasabah_now, data_nasabah):
+def setor_tunai(data_nasabah, nasabah_now):
     print(
         """
         __________________________________________
@@ -36,8 +36,8 @@ def setor_tunai(nasabah_now, data_nasabah):
                 )
             konfirmasi = int(input(""))
             if konfirmasi == 1:
-                nasabah_now["saldo"] += total
-                
+                nasabah_now["saldo"] = nasabah_now["saldo"] + total
+              
                 sisa_text = f"SISA SALDO ANDA {nasabah_now["saldo"]}".center(40)
 
                 print(
@@ -76,4 +76,3 @@ def setor_tunai(nasabah_now, data_nasabah):
             )
             pass
 
-setor_tunai()

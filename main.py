@@ -13,6 +13,7 @@ from module.cek_saldo import cek_saldo # fungsi cek saldo
 from module.fungsi_penarikan import penarikan_tunai
 from module.transfer import transfer
 from module import main_loop_config
+from module.setor_tunai import setor_tunai
 from time import sleep
 
 # Definisi prosedur
@@ -79,7 +80,8 @@ def main():
         | (0) CANCEL                             |
         | (1) INFORMASI SALDO                    |
         | (2) TRANSFER ANTAR BANK                |
-        | (3) PENARIKAN TUNAI                    |
+        | (3) SETOR TUNAI                        |
+        | (4) PENARIKAN TUNAI                    |
         |________________________________________|
         """
             ) # Penampilan menu kedua
@@ -87,7 +89,7 @@ def main():
             # Rangkaian instruksi meminta input pengguna hingga terdapat input yang ada opsinya
             input_pilihan_menu = int(input("Pilih menu: "))
             while True:  
-                if input_pilihan_menu < 0 or input_pilihan_menu > 3:
+                if input_pilihan_menu < 0 or input_pilihan_menu > 4:
                     input_pilihan_menu = int(input("Opsi tidak ditemukan. Pilih menu: "))
                 else:
                     break
@@ -99,6 +101,8 @@ def main():
                 cek_saldo(nasabah_now) # Cek saldo, memanggil fungsi cek_saldo dan menggunakan data pengguna 
             elif input_pilihan_menu == 2:
                 transfer(data_nasabah, nasabah_now) # Transfer, memanggil fungsi transfer dan menggunakan data pengguna serta database pengguna ATM
+            elif input_pilihan_menu == 3:
+                setor_tunai(data_nasabah, nasabah_now)
                 
         
         # Loop Termination        
