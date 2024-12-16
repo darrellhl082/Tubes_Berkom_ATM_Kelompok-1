@@ -7,6 +7,7 @@ def penarikan_tunai(nasabah_now, jumlah_penarikan):
             while True:
                 jumlah_penarikan = int(input("Rp"))
                 if jumlah_penarikan%50000 != 0:
+                    print("SILAHKAN MASUKKAN ULANG JUMLAH UANG YANG INGIN ANDA TARIK")
                     pass
                 elif jumlah_penarikan%50000 == 0:
                     break
@@ -28,6 +29,7 @@ def penarikan_tunai(nasabah_now, jumlah_penarikan):
         |________________________________________|
         """
             )
+            break
         elif nasabah_now["saldo"] < min_saldo:
             print(
         """
@@ -76,3 +78,4 @@ def penarikan_tunai(nasabah_now, jumlah_penarikan):
         """
             )
             break
+
