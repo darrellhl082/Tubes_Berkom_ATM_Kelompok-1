@@ -7,7 +7,7 @@
 # pilih, nominal_transfer, konfirmasi : int
 
 # ALGORITMA
-
+from module import main_loop_config # mengambil kode dalam main_loop_config.py untuk variabel main_loop digunakan dalam program
 min_saldo = 50000
 
 def transfer(data_nasabah, nasabah_now):
@@ -193,7 +193,9 @@ def transfer(data_nasabah, nasabah_now):
                     # nge loop ulang ke input nominal transfer,tterus masukin ulang lagi
                     pass
                 elif konfirmasi == 0:
-                    quit()
+                    # quit()
+                    main_loop_config.main_loop = False
+                    break
             break
             
         elif pilih == 2:

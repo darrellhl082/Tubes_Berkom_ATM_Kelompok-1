@@ -113,7 +113,7 @@ def main():
             data_nasabah = json.dumps(data_nasabah, indent=2)
 
             # write to json database
-            with open("data_nasabah.json", "w") as json_data_w:
+            with open("module/data_nasabah.json", "w") as json_data_w:
                 json_data_w.write(data_nasabah)
 
             print(
