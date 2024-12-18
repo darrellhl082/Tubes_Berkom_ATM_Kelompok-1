@@ -58,7 +58,8 @@ def setor_tunai(data_nasabah, nasabah_now):
                     if(item["nomor_rekening"] == nasabah_now["nomor_rekening"]):
                         item = nasabah_now
                         break
-
+            elif konfirmasi == 0:
+                quit()
         else:
             print(
         """
