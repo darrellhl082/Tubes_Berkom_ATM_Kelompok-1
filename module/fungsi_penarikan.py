@@ -1,5 +1,7 @@
 # Program Fungsi Penarikan ATM
 # saldo = 5000000
+from PIL import Image
+
 min_saldo = 50000
 def penarikan_tunai(nasabah_now, jumlah_penarikan):
     while True:
@@ -77,5 +79,8 @@ def penarikan_tunai(nasabah_now, jumlah_penarikan):
         |________________________________________|
         """
             )
+            limapuluh = Image.open(r"../assets/limapuluh.jpg")
+            for _ in range(0, jumlah_penarikan//50000):
+                limapuluh.show()
             break
 
