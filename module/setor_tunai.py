@@ -1,7 +1,9 @@
 # Program Setor Tunai
 
 def setor_tunai(data_nasabah, nasabah_now):
-    print(
+    status = False
+    while not status:
+        print(
         """
         __________________________________________
         |                                        |
@@ -11,11 +13,10 @@ def setor_tunai(data_nasabah, nasabah_now):
         |          MAKSIMAL 100 LEMBAR           |
         |                                        |
         |                                        |
-        |                            (0) CANCEL  |
+        |                                        |
         |________________________________________|
         """
             )
-    while True:
         jumlah_setor = int(input("Masukkan jumlah lembar uang: "))
         if 0 < jumlah_setor <= 100:
             total = 50000*jumlah_setor
@@ -58,8 +59,9 @@ def setor_tunai(data_nasabah, nasabah_now):
                     if(item["nomor_rekening"] == nasabah_now["nomor_rekening"]):
                         item = nasabah_now
                         break
+                status = True
             elif konfirmasi == 0:
-                quit()
+                status = True
         else:
             print(
         """
@@ -67,13 +69,12 @@ def setor_tunai(data_nasabah, nasabah_now):
         |                                        |
         |                                        |
         |                                        |
-        |       SILAHKAN MASUKKAN UANG ANDA      |
-        |          MAKSIMAL 100 LEMBAR           |
+        |              TIDAK VALID               |
         |                                        |
-        |               (0) CANCEL               |
+        |                                        |
+        |                                        |
         |                                        |
         |________________________________________|
         """
             )
-            pass
 
