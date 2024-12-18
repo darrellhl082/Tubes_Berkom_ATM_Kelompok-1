@@ -79,7 +79,7 @@ def penarikan_tunai(nasabah_now, jumlah_penarikan):
         |________________________________________|
         """
             )
-            limapuluh = Image.open(r"https://github.com/darrellhl082/Tubes_Berkom_ATM_Kelompok-1/blob/f2102b0824134467af3fd43345171ab507185fcb/assets/limapuluh.jpg")
+            limapuluh = Image.open("assets/limapuluh.jpg")
             for _ in range(0, jumlah_penarikan//50000):
                 limapuluh.show()
             break
