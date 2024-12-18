@@ -7,7 +7,7 @@
 # Algoritma
 
 # Import fungsi dan prosedur dari berbagai file serta module
-from module.data_nasabah import data_nasabah
+# from module.data_nasabah import data_nasabah
 from module.main_autentikasi import Main_Otentikasi # fungsi autentikasi
 from module.cek_saldo import cek_saldo # fungsi cek saldo
 from module.fungsi_penarikan import penarikan_tunai
@@ -15,6 +15,7 @@ from module.transfer import transfer
 from module import main_loop_config
 from module.setor_tunai import setor_tunai
 from time import sleep
+import json
 
 # Definisi prosedur
 def main():
@@ -28,6 +29,11 @@ def main():
     # list_nominal: list of integers; nominal-nominal penarikan
 
     main_loop_config.main_loop = True # Inisialisasi untuk memastikan prosedur akan diulang hingga diberhentikan oleh pengguna
+
+    # Inisialisasi data_nasabah list of dictionaries dari json
+    with open("module/data_nasabah.json", "r") as json_data_r:
+        data_nasabah = json.load(json_data_r)
+
     nasabah_now = Main_Otentikasi(data_nasabah) # Memegang data pengguna dalam variabel nasabah_now
     sleep(1.0) # Menunda eksekusi kode line selanjutnya selama x (1.5) detik
 
@@ -107,6 +113,13 @@ def main():
         
         # Loop Termination        
         if not main_loop_config.main_loop: # Loop Terminator
+            # Update data for json database, convert to json
+            data_nasabah = json.dumps(data_nasabah, indent=2)
+
+            # write to json database
+            with open("module/data_nasabah.json", "w") as json_data_w:
+                json_data_w.write(data_nasabah)
+
             print(
         """
         __________________________________________
