@@ -33,7 +33,7 @@ def main():
     main_loop_config.main_loop = True # Inisialisasi untuk memastikan prosedur akan diulang hingga diberhentikan oleh pengguna
 
     # Inisialisasi data_nasabah list of dictionaries dari json
-    with open("module/data_nasabah.json", "r") as json_data_r:
+    with open("database/data_nasabah.json", "r") as json_data_r:
         data_nasabah = json.load(json_data_r)
 
     nasabah_now = Main_Otentikasi(data_nasabah) # Memegang data pengguna dalam variabel nasabah_now
@@ -119,7 +119,7 @@ def main():
             data_nasabah = json.dumps(data_nasabah, indent=2)
 
             # menulis ke json database
-            with open("module/data_nasabah.json", "w") as json_data_w:
+            with open("database/data_nasabah.json", "w") as json_data_w:
                 json_data_w.write(data_nasabah)
 
             print(
