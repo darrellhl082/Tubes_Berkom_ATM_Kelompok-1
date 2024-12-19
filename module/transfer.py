@@ -20,16 +20,16 @@ def transfer(data_nasabah, nasabah_now):
     while not found:
                 print(
                 """
-            __________________________________________
-            |                                        |
-            |                TRANSFER                |
-            |                                        |
-            |     MASUKKAN NOMOR REKENING TUJUAN     |
-            |                                        |
-            |                                        |
-            |                                        |
-            |                                        |
-            |________________________________________|
+        __________________________________________
+        |                                        |
+        |                TRANSFER                |
+        |                                        |
+        |     MASUKKAN NOMOR REKENING TUJUAN     |
+        |                                        |
+        |                                        |
+        |                                        |
+        |                                        |
+        |________________________________________|
                 """
                 )
                 norek = str(input())
@@ -45,32 +45,32 @@ def transfer(data_nasabah, nasabah_now):
                     norek_text = f"NOMOR REKENING {norek}".center(40)
                     print(
                     f"""
-            __________________________________________
-            |                                        |
-            |                TRANSFER                |
-            |                                        |
-            |{norek_text}|
-            |                                        |            
-            |                                        |
-            |     NOMOR REKENING TIDAK DITEMUKAN     |
-            |                                        |
-            |________________________________________|
+        __________________________________________
+        |                                        |
+        |                TRANSFER                |
+        |                                        |
+        |{norek_text}|
+        |                                        |            
+        |                                        |
+        |     NOMOR REKENING TIDAK DITEMUKAN     |
+        |                                        |
+        |________________________________________|
                     """
                     )
                         
             # input nominal transfer
     print(
                         f"""
-            __________________________________________
-            |                                        |
-            |                TRANSFER                |
-            |                                        |
-            |{norek_tujuan_text}|
-            |{nama_text}|
-            |                                        |
-            |                  (1) TEKAN JIKA BENAR  |
-            |                  (2) TEKAN JIKA SALAH  |
-            |________________________________________|
+        __________________________________________
+        |                                        |
+        |                TRANSFER                |
+        |                                        |
+        |{norek_tujuan_text}|
+        |{nama_text}|
+        |                                        |
+        |                  (1) TEKAN JIKA BENAR  |
+        |                  (2) TEKAN JIKA SALAH  |
+        |________________________________________|
                         """
                         )
     pilih = int(input())
@@ -79,49 +79,49 @@ def transfer(data_nasabah, nasabah_now):
          while not status_transfer:
                 print(
                 """
-                __________________________________________
-                |                                        |
-                |                TRANSFER                |
-                |                                        |
-                |    MASUKKAN JUMLAH NOMINAL TRANSFER    |
-                |                                        |
-                |                                        |
-                |                                        |
-                |                                        |
-                |________________________________________|
+        __________________________________________
+        |                                        |
+        |                TRANSFER                |
+        |                                        |
+        |    MASUKKAN JUMLAH NOMINAL TRANSFER    |
+        |                                        |
+        |                                        |
+        |                                        |
+        |                                        |
+        |________________________________________|
                 """
                 )
                 nominal_transfer = int(input())
                 nominal_text = f"{nominal_transfer}".center(40)
 
-                konfirmasi = int(input(
+                print(
                 f"""
-                __________________________________________
-                |                                        |
-                |                TRANSFER                |
-                |    MASUKKAN JUMLAH NOMINAL TRANSFER    |
-                |{nominal_text}|
-                |                                        |
-                |                            (0) CANCEL  |
-                |                  (1) TEKAN JIKA BENAR  |
-                |                  (2) TEKAN JIKA SALAH  |
-                |________________________________________|
-                """
-                ))
+        __________________________________________
+        |                                        |
+        |                TRANSFER                |
+        |    MASUKKAN JUMLAH NOMINAL TRANSFER    |
+        |{nominal_text}|
+        |                                        |
+        |                            (0) CANCEL  |
+        |                  (1) TEKAN JIKA BENAR  |
+        |                  (2) TEKAN JIKA SALAH  |
+        |________________________________________|
+                """)
+                konfirmasi = int(input())
                 if konfirmasi == 1:
                     if nominal_transfer > nasabah_now["saldo"] or nasabah_now["saldo"] < min_saldo or nasabah_now["saldo"]-nominal_transfer < min_saldo:
                         print(
                         f"""
-                __________________________________________
-                |                                        |
-                |                                        |
-                |                                        |
-                |            TRANSAKSI GAGAL             |
-                |       SALDO ANDA TIDAK MENCUKUPI       |
-                |                                        |
-                |                                        |
-                |                                        |
-                |________________________________________|
+        __________________________________________
+        |                                        |
+        |                                        |
+        |                                        |
+        |            TRANSAKSI GAGAL             |
+        |       SALDO ANDA TIDAK MENCUKUPI       |
+        |                                        |
+        |                                        |
+        |                                        |
+        |________________________________________|
                         """
                         )
                     else:
@@ -132,16 +132,16 @@ def transfer(data_nasabah, nasabah_now):
 
                         print(
                         f"""
-                __________________________________________
-                |                                        |
-                |                                        |
-                |            TRANSAKSI BERHASIL          |
-                |              TERIMA KASIH :)           |
-                |                                        |
-                |                                        |
-                |{sisa_text}|
-                |                                        |
-                |________________________________________|
+        __________________________________________
+        |                                        |
+        |                                        |
+        |            TRANSAKSI BERHASIL          |
+        |              TERIMA KASIH :)           |
+        |                                        |
+        |                                        |
+        |{sisa_text}|
+        |                                        |
+        |________________________________________|
                         """
                         )
                         # update data_nasabah menjadi nasabah_now
