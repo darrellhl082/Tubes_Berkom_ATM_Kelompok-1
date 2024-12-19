@@ -1,6 +1,6 @@
 # Program Fungsi Penarikan ATM
 # saldo = 5000000
-from PIL import Image
+from PIL import Image # type: ignore
 
 min_saldo = 50000
 def penarikan_tunai(nasabah_now, jumlah_penarikan):

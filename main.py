@@ -48,7 +48,7 @@ def main():
         |                                        |
         |            PENARIKAN TUNAI             |
         | SILAHKAN MASUKKAN ANGKA SESUAI PILIHAN |
-        | (0) CANCEL                             |
+        | (0) QUIR                               |
         | (1) 50.000      (5) 1.000.000          |
         | (2) 250.000     (6) 1.500.000          |
         | (3) 500.000     (7) JUMLAH LAINNYA     |
@@ -85,7 +85,7 @@ def main():
         |             TRANSAKSI LAIN             |
         | SILAHKAN MASUKKAN ANGKA SESUAI PILIHAN |
         |                                        |
-        | (0) CANCEL                             |
+        | (0) QUIT                               |
         | (1) INFORMASI SALDO                    |
         | (2) TRANSFER ANTAR BANK                |
         | (3) SETOR TUNAI                        |
