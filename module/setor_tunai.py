@@ -23,16 +23,16 @@ def setor_tunai(data_nasabah, nasabah_now):
             total_text = f"50000 x {jumlah_setor} = {total}".center(40)
             print(
             f"""
-            __________________________________________
-            |                                        |
-            |                                        |
-            |                                        |
-            |                                        |
-            |{total_text}|
-            |                                        |
-            |                            (0) CANCEL  |
-            |                            (1) SETOR   |
-            |________________________________________|
+        __________________________________________
+        |                                        |
+        |                                        |
+        |                                        |
+        |                                        |
+        |{total_text}|
+        |                                        |
+        |                            (0) CANCEL  |
+        |                            (1) SETOR   |
+        |________________________________________|
             """
                 )
             konfirmasi = int(input(""))
@@ -43,16 +43,16 @@ def setor_tunai(data_nasabah, nasabah_now):
 
                 print(
                 f"""
-            __________________________________________
-            |                                        |
-            |                                        |
-            |            TRANSAKSI BERHASIL          |
-            |              TERIMA KASIH :)           |
-            |                                        |
-            |                                        |
-            |{sisa_text}|
-            |                                        |
-            |________________________________________|
+        __________________________________________
+        |                                        |
+        |                                        |
+        |            TRANSAKSI BERHASIL          |
+        |              TERIMA KASIH :)           |
+        |                                        |
+        |                                        |
+        |{sisa_text}|
+        |                                        |
+        |________________________________________|
                 """
                 )
                 for item in data_nasabah:
