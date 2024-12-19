@@ -7,15 +7,14 @@
 # Algoritma
 
 # Import fungsi dan prosedur dari berbagai file serta module
-# from module.data_nasabah import data_nasabah
 from module.main_autentikasi import Main_Otentikasi # fungsi autentikasi
 from module.cek_saldo import cek_saldo # fungsi cek saldo
-from module.fungsi_penarikan import penarikan_tunai
-from module.transfer import transfer
-from module import main_loop_config
-from module.setor_tunai import setor_tunai
-from time import sleep
-import json
+from module.fungsi_penarikan import penarikan_tunai # fungsi penarikan tunai
+from module.transfer import transfer # fungsi transfer
+from module import main_loop_config # variabel main_loop untuk penanda online/offline (quit)
+from module.setor_tunai import setor_tunai # fungsi setor tunai
+from time import sleep # fungsi delay untuk meningkatkan keaslian program (terasa seperti ATM beneran)
+import json # fungsi json untuk impor/ekspor json
 
 # Definisi prosedur
 def main():
@@ -25,7 +24,10 @@ def main():
     # KAMUS LOKAL
     # main_loop_config.main_loop: bool; menandakan jika prosedur akan berulang atau tidak
     # input_pilihan_menu: str; memegang input pilihan menu
-    # nasabah_now: dict; memegang data pengguna
+    # json_data_r: json type; memegang isi dari database json untuk dibaca oleh program
+    # json_data_w: json type; memegang isi dari database json untuk diedit oleh program
+    # data_nasabah: list (list of dictionaries, dictionary of str, int); memegang seluruh data pengguna yang diimport dari database json
+    # nasabah_now: dict; memegang data pengguna yang menggunakan mesin ATM
     # list_nominal: list of integers; nominal-nominal penarikan
 
     main_loop_config.main_loop = True # Inisialisasi untuk memastikan prosedur akan diulang hingga diberhentikan oleh pengguna
@@ -113,10 +115,10 @@ def main():
         
         # Loop Termination        
         if not main_loop_config.main_loop: # Loop Terminator
-            # Update data for json database, convert to json
+            # memperbarui data untuk json database, mengubah ke json
             data_nasabah = json.dumps(data_nasabah, indent=2)
 
-            # write to json database
+            # menulis ke json database
             with open("module/data_nasabah.json", "w") as json_data_w:
                 json_data_w.write(data_nasabah)
 
