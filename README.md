@@ -20,7 +20,7 @@ Program Simulasi ATM ini ditujukan untuk memenuhi tugas besar mata kuliah Berpik
 ## Instalasi
 1. **Clone Repository**
 ```bash
-   gh repo clone darrellhl082/Tubes_Berkom_ATM_Kelompok-1
+   git clone https://github.com/darrellhl082/Tubes_Berkom_ATM_Kelompok-1.git
 ```
 2. **Masuk ke Direktori Projek**
 ```bash
@@ -36,11 +36,12 @@ Program Simulasi ATM ini ditujukan untuk memenuhi tugas besar mata kuliah Berpik
 ```
 
 ## Penggunaan
-1. **Autentikasi:** masukkan nomor rekening dan kata sandi yang tertera di dokumen data_nasabah.json
-2. **Tarik Tunai:** pilih menu nominal atau nomor 8 dan masukkan nominal dalam kelipatan Rp50.000
-3. **Setor Tunai:** masukkan jumlah lembar uang dengan kelipatan Rp50.000 setiap lembar untuk disetor
-4. **Cek Saldo:** pergi ke menu transaksi lainnya dan pilih menu cek saldo
-5. **Database:** pastikan mematikan program secara normal dengan pilih nomor 0 atau QUIT di menu agar database diperbarui
+1. **Autentikasi:** masukkan nomor rekening dan kata sandi yang tertera di dokumen data_nasabah.json.
+   Contoh: 16524001 (NoRek) | 230224 (Kata Sandi)
+3. **Tarik Tunai:** pilih menu nominal atau nomor 8 dan masukkan nominal dalam kelipatan Rp50.000
+4. **Setor Tunai:** masukkan jumlah lembar uang dengan kelipatan Rp50.000 setiap lembar untuk disetor
+5. **Cek Saldo:** pergi ke menu transaksi lainnya dan pilih menu cek saldo
+6. **Database:** pastikan mematikan program secara normal dengan pilih nomor 0 atau QUIT di menu agar database diperbarui
 
 ## Kontak Kelompok
 - **Nama:** Darrell Hammam Luthiadi
