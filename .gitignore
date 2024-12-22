@@ -1,2 +1,3 @@
 module/__pycache__/
 *.py[cod]
+module/data_nasabah.json

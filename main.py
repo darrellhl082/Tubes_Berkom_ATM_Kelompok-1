@@ -7,13 +7,14 @@
 # Algoritma
 
 # Import fungsi dan prosedur dari berbagai file serta module
-from module.data_nasabah import data_nasabah
 from module.main_autentikasi import Main_Otentikasi # fungsi autentikasi
 from module.cek_saldo import cek_saldo # fungsi cek saldo
-from module.fungsi_penarikan import penarikan_tunai
-from module.transfer import transfer
-from module import main_loop_config
-from time import sleep
+from module.fungsi_penarikan import penarikan_tunai # fungsi penarikan tunai
+from module.transfer import transfer # fungsi transfer
+from module import main_loop_config # variabel main_loop untuk penanda online/offline (quit)
+from module.setor_tunai import setor_tunai # fungsi setor tunai
+from time import sleep # fungsi delay untuk meningkatkan keaslian program (terasa seperti ATM beneran)
+import json # fungsi json untuk impor/ekspor json
 
 # Definisi prosedur
 def main():
@@ -23,10 +24,18 @@ def main():
     # KAMUS LOKAL
     # main_loop_config.main_loop: bool; menandakan jika prosedur akan berulang atau tidak
     # input_pilihan_menu: str; memegang input pilihan menu
-    # nasabah_now: dict; memegang data pengguna
+    # json_data_r: json type; memegang isi dari database json untuk dibaca oleh program
+    # json_data_w: json type; memegang isi dari database json untuk diedit oleh program
+    # data_nasabah: list (list of dictionaries, dictionary of str, int); memegang seluruh data pengguna yang diimport dari database json
+    # nasabah_now: dict; memegang data pengguna yang menggunakan mesin ATM
     # list_nominal: list of integers; nominal-nominal penarikan
 
     main_loop_config.main_loop = True # Inisialisasi untuk memastikan prosedur akan diulang hingga diberhentikan oleh pengguna
+
+    # Inisialisasi data_nasabah list of dictionaries dari json
+    with open("database/data_nasabah.json", "r") as json_data_r:
+        data_nasabah = json.load(json_data_r)
+
     nasabah_now = Main_Otentikasi(data_nasabah) # Memegang data pengguna dalam variabel nasabah_now
     sleep(1.0) # Menunda eksekusi kode line selanjutnya selama x (1.5) detik
 
@@ -39,7 +48,7 @@ def main():
         |                                        |
         |            PENARIKAN TUNAI             |
         | SILAHKAN MASUKKAN ANGKA SESUAI PILIHAN |
-        | (0) CANCEL                             |
+        | (0) QUIR                               |
         | (1) 50.000      (5) 1.000.000          |
         | (2) 250.000     (6) 1.500.000          |
         | (3) 500.000     (7) JUMLAH LAINNYA     |
@@ -76,10 +85,11 @@ def main():
         |             TRANSAKSI LAIN             |
         | SILAHKAN MASUKKAN ANGKA SESUAI PILIHAN |
         |                                        |
-        | (0) CANCEL                             |
+        | (0) QUIT                               |
         | (1) INFORMASI SALDO                    |
         | (2) TRANSFER ANTAR BANK                |
-        | (3) PENARIKAN TUNAI                    |
+        | (3) SETOR TUNAI                        |
+        | (4) PENARIKAN TUNAI                    |
         |________________________________________|
         """
             ) # Penampilan menu kedua
@@ -87,7 +97,7 @@ def main():
             # Rangkaian instruksi meminta input pengguna hingga terdapat input yang ada opsinya
             input_pilihan_menu = int(input("Pilih menu: "))
             while True:  
-                if input_pilihan_menu < 0 or input_pilihan_menu > 3:
+                if input_pilihan_menu < 0 or input_pilihan_menu > 4:
                     input_pilihan_menu = int(input("Opsi tidak ditemukan. Pilih menu: "))
                 else:
                     break
@@ -99,10 +109,19 @@ def main():
                 cek_saldo(nasabah_now) # Cek saldo, memanggil fungsi cek_saldo dan menggunakan data pengguna 
             elif input_pilihan_menu == 2:
                 transfer(data_nasabah, nasabah_now) # Transfer, memanggil fungsi transfer dan menggunakan data pengguna serta database pengguna ATM
+            elif input_pilihan_menu == 3:
+                setor_tunai(data_nasabah, nasabah_now)
                 
         
         # Loop Termination        
         if not main_loop_config.main_loop: # Loop Terminator
+            # memperbarui data untuk json database, mengubah ke json
+            data_nasabah = json.dumps(data_nasabah, indent=2)
+
+            # menulis ke json database
+            with open("database/data_nasabah.json", "w") as json_data_w:
+                json_data_w.write(data_nasabah)
+
             print(
         """
         __________________________________________
