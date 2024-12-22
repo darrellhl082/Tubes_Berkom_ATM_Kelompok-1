@@ -48,7 +48,7 @@ def main():
         |                                        |
         |            PENARIKAN TUNAI             |
         | SILAHKAN MASUKKAN ANGKA SESUAI PILIHAN |
-        | (0) QUIR                               |
+        | (0) QUIT                               |
         | (1) 50.000      (5) 1.000.000          |
         | (2) 250.000     (6) 1.500.000          |
         | (3) 500.000     (7) JUMLAH LAINNYA     |
