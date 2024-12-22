@@ -10,12 +10,12 @@ Program Simulasi ATM ini ditujukan untuk memenuhi tugas besar mata kuliah Berpik
 - Audrey Nabiilah P. (16524052)
 
 ## Fitur
--**Tarik Tunai:** pengguna dapat melakukan penarikan uang tunai dari rekening
--**Setor Tunai:** pengguna dapat melakukan penyetoran uang tunai ke rekening
--**Transfer:** pengguna dapat melakukan transfer saldo rekeningnya ke rekening lain
--**Cek Saldo:** pengguna dapat mengecek saldo rekeningnya saat ini
--**Autentikasi:** pengguna harus memasukkan nomor rekening dan kata sandinya untuk mengakses rekening
--**Database Dinamis:** data rekening pengguna tersimpan di sebuah basis data dinamis agar data tetap terjaga walau siklus hidup program selesai
+- **Tarik Tunai:** pengguna dapat melakukan penarikan uang tunai dari rekening
+- **Setor Tunai:** pengguna dapat melakukan penyetoran uang tunai ke rekening
+- **Transfer:** pengguna dapat melakukan transfer saldo rekeningnya ke rekening lain
+- **Cek Saldo:** pengguna dapat mengecek saldo rekeningnya saat ini
+- **Autentikasi:** pengguna harus memasukkan nomor rekening dan kata sandinya untuk mengakses rekening
+- **Database Dinamis:** data rekening pengguna tersimpan di sebuah basis data dinamis agar data tetap terjaga walau siklus hidup program selesai
 
 ## Instalasi
 1. **Clone Repository**
@@ -43,9 +43,9 @@ Program Simulasi ATM ini ditujukan untuk memenuhi tugas besar mata kuliah Berpik
 5. **Database:** pastikan mematikan program secara normal dengan pilih nomor 0 atau QUIT di menu agar database diperbarui
 
 ## Kontak Kelompok
--**Nama:** Darrell Hammam Luthiadi
--**NIM:** 16524042
--**Email:** darrellhluthfiadi@gmail.com
+- **Nama:** Darrell Hammam Luthiadi
+- **NIM:** 16524042
+- **Email:** darrellhluthfiadi@gmail.com
 
 
 
