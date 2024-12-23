@@ -9,7 +9,10 @@ Program Simulasi ATM ini ditujukan untuk memenuhi tugas besar mata kuliah Berpik
 - Darrell Hammam L.  (16524042)
 - Audrey Nabiilah P. (16524052)
 ## Laporan
-Berikut adalah laporan proyek kelompok: [WI1102_Projek2_25_01](https://drive.google.com/file/d/18_vh31s166e5NSxe_QmbJ3rKWiZO1T_T/view?usp=sharing).
+Berikut adalah laporan proyek kelompok: 
+1. **Tubes 1:** [WI1102_ProjekI_25_01](https://drive.google.com/file/d/18_vh31s166e5NSxe_QmbJ3rKWiZO1T_T/view?usp=sharing).
+2. **Tubes 2:** [WI1102_Projek2_25_01](https://drive.google.com/file/d/18_vh31s166e5NSxe_QmbJ3rKWiZO1T_T/view?usp=sharing).
+
 ## Fitur
 - **Tarik Tunai:** pengguna dapat melakukan penarikan uang tunai dari rekening
 - **Setor Tunai:** pengguna dapat melakukan penyetoran uang tunai ke rekening
