@@ -26,12 +26,6 @@ def cek_saldo(nasabah_now): # parameter nasabah_now bertipe dict, bertujuan untu
         |{saldo_text}|
         |                 RUPIAH                 |
         |                                        |
-        |     APAKAH INGIN LANJUT TRANSAKSI?     |
-        | (1) YA                      (2) TIDAK  |
+        |                                        |
         |________________________________________|
         """) # output
-
-    # Memberi pengguna pilihan untuk lanjut atau tidak
-    input_pilihan = int(input("Pilih menu: "))
-    if input_pilihan == 2:
-        main_loop_config.main_loop = False # Update variable tersebut menjadi false yang nantinya akan menandakkan keberhentian dari pengulangan pada main
