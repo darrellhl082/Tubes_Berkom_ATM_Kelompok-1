@@ -18,7 +18,7 @@ Program Simulasi ATM ini ditujukan untuk memenuhi tugas besar mata kuliah Berpik
 - **Database Dinamis:** data rekening pengguna tersimpan di sebuah basis data dinamis agar data tetap terjaga walau siklus hidup program selesai
 
 ## Instalasi
-   Disarankan melakukan instalasi melalui GitHub. Sebelum memulai program, pastikan denpendensi program sudah terpasang. Jika belum dapat mengikuti petunjuk di bawah ini.
+   Disarankan melakukan instalasi melalui halaman repositori GitHub. Sebelum memulai program, pastikan denpendensi program sudah terpasang. Jika belum, dapat mengikuti petunjuk di bawah ini.
 1. **Clone Repository**
 ```bash
    git clone https://github.com/darrellhl082/Tubes_Berkom_ATM_Kelompok-1.git
